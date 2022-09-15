@@ -1,0 +1,14 @@
+footer {
+  display: flex;
+  font-size: 20px;
+  background-color: grey;
+  height: 50px;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center; }
+
+#footer-li li a {
+  text-decoration: none;
+  color: black; }
