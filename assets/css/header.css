@@ -12,10 +12,10 @@ header {
 #navbar {
   background-color: #64a0ff; }
 
-ul li {
+#nav-li li, #footer-li li {
   display: inline;
   margin-right: 20px;
   font-size: 18px; }
-  ul li a {
+  #nav-li li a, #footer-li li a {
     text-decoration: none;
     color: white; }
