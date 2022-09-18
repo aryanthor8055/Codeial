@@ -24,10 +24,20 @@
                         <%= post.user.name %>
                     </small>
                 </p>
-                
+             <div class="post-comments">
+                <% if(locals.user){ %>
+                    <form action="/comments/create" method="post">
+                        <input type="text" name="content" placeholder="Type Here to Add Comment..">
+                        <input type="hidden" name="post" value="<%= post._id %>">
+                        <input type="submit" value="Add Comment">
+                    </form>
+
+                <% } %>
+             </div>
             </li>
                 
             <%} %>
         </ul>
     </div>
+    
 </section>
