@@ -1,19 +1,18 @@
-footer{
+#layout-footer{
+    color: white;
+    a{
+        color: white;
+        text-decoration: none;
+    }
+
+    background: grey;
+    padding: 5px 10px;
     display: flex;
-    font-size: 20px;
-    background-color: grey;
-    height: 50px;
-    align-content: center;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-}
-#footer-li{
-    li{
-        a{
-            text-decoration: none;
-            color: black;
+    justify-content: flex-start;
+
+    .footer-nav{
+        ul{
+            list-style: none;
         }
     }
 }

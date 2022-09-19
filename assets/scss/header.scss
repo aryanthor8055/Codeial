@@ -1,25 +1,35 @@
-header{
-    display: flex;
-    background-color: #2874f0;
-    color: white;
-    height: 60px;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: space-between;
-    align-items: center;
-}
-#navbar{
-    background-color: rgb(100, 160, 255);
-}
-#nav-li,#footer-li{
-    li{
-        display: inline;
-        margin-right: 20px;
-        font-size: 18px;
-        a{
-            text-decoration: none;
-            color: white;
+#layout-header{
+    nav{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        background: #2196f3;
+        color: white;
+        box-shadow: 1px 1px 1px 1px lightgrey;
+
+        .mini-logo{
+            p{
+                margin: 5px;
+                font-size: 1.4rem;
+                font-weight: bold;
+            }
         }
+
+        .auth-links{
+            ul{
+                margin: 5% 5px;
+                display: flex;
+                list-style: none;
+                li{
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        a{
+            color: white;
+            text-decoration: none;
+        }
+
     }
 }

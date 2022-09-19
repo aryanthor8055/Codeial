@@ -1,21 +1,20 @@
-header {
+#layout-header nav {
   display: flex;
-  background-color: #2874f0;
-  color: white;
-  height: 60px;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-content: center;
   justify-content: space-between;
-  align-items: center; }
-
-#navbar {
-  background-color: #64a0ff; }
-
-#nav-li li, #footer-li li {
-  display: inline;
-  margin-right: 20px;
-  font-size: 18px; }
-  #nav-li li a, #footer-li li a {
-    text-decoration: none;
-    color: white; }
+  padding: 0 10px;
+  background: #2196f3;
+  color: white;
+  box-shadow: 1px 1px 1px 1px lightgrey; }
+  #layout-header nav .mini-logo p {
+    margin: 5px;
+    font-size: 1.4rem;
+    font-weight: bold; }
+  #layout-header nav .auth-links ul {
+    margin: 5% 5px;
+    display: flex;
+    list-style: none; }
+    #layout-header nav .auth-links ul li {
+      margin-right: 10px; }
+  #layout-header nav a {
+    color: white;
+    text-decoration: none; }
