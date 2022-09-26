@@ -1,10 +1,11 @@
 <link rel="stylesheet" href="/css/post.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
-<li>
-    <p id="User-posts">
+<li id="post-<%= post._id %>">
+    <p>
         <% if (locals.user && locals.user.id == post.user.id){ %>
         <small>
-            <a href="/posts/destroy/<%= post.id %>">X</a>
+            <a class="delete-post-button"  href="/posts/destroy/<%= post.id %>">X</a>
         </small>
         <% } %>
         <%= post.content %>
@@ -14,9 +15,9 @@
         </small>
     </p>
     <div class="post-comments">
-        <h4>Comments</h4>
         <% if (locals.user){ %>
-            <form action="/comments/create" method="POST">
+            <!-- let's give an id to the new comment form, we'll also need to make the same changes in home_posts.js where we're adding a post to the page -->
+            <form id="post-<%= post._id %>-comments-form" action="/comments/create" method="POST">
                 <input type="text" name="content" placeholder="Type Here to add comment..." required>
                 <input type="hidden" name="post" value="<%= post._id %>" >
                 <input type="submit" value="Add Comment">
@@ -28,9 +29,9 @@
             <ul id="post-comments-<%= post._id %>">
                 <% for (comment of post.comments){%>
 
-                   <%-include('_comment')-%>
+                    <%- include('_comment') -%>
                     
-                  
+                
                 <%} %>
             </ul>
         </div>
