@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="/css/post.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
 <li id="post-<%= post._id %>">
     <p>
         <% if (locals.user && locals.user.id == post.user.id){ %>
@@ -13,6 +10,20 @@
         <small>
             <%= post.user.name %>
         </small>
+
+        <!-- CHANGE :: display the likes of this post, if the user is logged in, then show the link to toggle likes, else, just show the count -->
+        <br>
+            <!-- study about the data attribute -->
+        <small>
+            <% if (locals.user){ %>
+                <a class="toggle-like-button" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post._id%>&type=Post">
+                        <%= post.likes.length %> Likes
+                </a>
+            <% }else{ %>
+                <%= post.likes.length %> Likes
+            <% } %>
+        </small>
+
     </p>
     <div class="post-comments">
         <% if (locals.user){ %>
