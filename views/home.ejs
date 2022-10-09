@@ -1,18 +1,19 @@
 <link rel="stylesheet" href="/css/home.css">
 <link rel="stylesheet" href="/css/chat_box.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
 <div id="home-container">
     <section id="feed-posts">
-            <h4>Posts</h4>
+            <h2>Posts</h2>
             <% if(locals.user){ %>
             <form action="/posts/create" id="new-post-form" method="POST">
-                <textarea name="content" cols="30" rows="3" placeholder="Type Here..." required></textarea>
+                <textarea name="content" class="text-area" cols="36" rows="4" placeholder="Type Here..." required></textarea>
                 <input type="submit" value="Post">
             </form>
             <% } %>
         
             <div id="posts-list-container">
-                <ul>
+                <ul id="none">
                     <% for(post of posts){ %>
                         
                     <%- include('_post') -%>
@@ -24,7 +25,7 @@
         
         
         <section id="user-friends">
-            <h4>Friends</h4>
+            <h3>Friends</h3>
             <% for(u of all_users){%>
                 <p>
                     <a href="/users/profile/<%= u.id %>"><%= u.name %></a>

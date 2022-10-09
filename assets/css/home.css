@@ -1,18 +1,26 @@
 #home-container {
   display: flex; }
   #home-container #feed-posts {
-    width: 60%;
+    width: 70%;
     padding: 10px; }
 
 #user-friends {
-  width: 40%;
+  width: 30%;
   padding: 10px;
   border-left: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
   height: 100%; }
 
 input[type=submit] {
   background-color: #fb641b;
   color: white;
-  border: 1px solid;
+  border: 1px solid black;
   border-radius: 5px;
   cursor: pointer; }
+
+.text-area {
+  border: 2px solid black;
+  border-radius: 5px; }
+
+#none {
+  list-style: none; }

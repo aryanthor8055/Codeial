@@ -53,14 +53,16 @@ self.socket.on('receive_message',function(data){
     if(data.user_email==self.userEmail){
         messageType='self-message'
     }
-    newMessage.append('<span>',{
+    newMessage.append($('<span>',{
         'html':data.message
-    });
+    }));
 
-    newMessage.append('<sub>',{
+    newMessage.append($('<sub>',{
         'html':data.user_email
-    })
+    }))
     newMessage.addClass(messageType);
+
+    $('#chat-message-list').append(newMessage);c
 })
     }
 }
