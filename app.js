@@ -1,8 +1,12 @@
 const express = require('express');
-const env=require('./config/environment')
+const env = require('./config/environment');
+const logger = require('morgan');
+
+
 const cookieParser = require('cookie-parser');
 const app = express();
-const port = 8000;
+require('./config/view-helpers')(app);
+const port = process.env.Port;
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 // used for session cookie
@@ -11,7 +15,6 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const passportJWT = require('./config/passport-jwt-strategy');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
-const cors = require('cors');
 
 const MongoStore = require('connect-mongo')(session);
 const sassMiddleware = require('node-sass-middleware');
@@ -23,23 +26,27 @@ const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 chatServer.listen(5000);
 console.log('chat server is listening on port 5000');
-const path=require('path')
+const path = require('path');
 
-app.use(sassMiddleware({
-    src: path.join(__dirname,env.asset_path,'scss'),
-    dest: path.join(__dirname,env.asset_path,'css'),
-    debug: true,
-    outputStyle: 'extended',
-    prefix: '/css'
-}));
+if (env.name == 'development'){
+    app.use(sassMiddleware({
+        src: path.join(__dirname, env.asset_path, 'scss'),
+        dest: path.join(__dirname, env.asset_path, 'css'),
+        debug: true,
+        outputStyle: 'extended',
+        prefix: '/css'
+    }));
+}
+
 app.use(express.urlencoded());
 
 app.use(cookieParser());
-app.use(cors({origin: 'http://localhost:8000'}))
 
 app.use(express.static(env.asset_path));
 // make the uploads path available to the browser
 app.use('/uploads', express.static(__dirname + '/uploads'));
+
+app.use(logger(env.morgan.mode, env.morgan.options));
 
 app.use(expressLayouts);
 // extract style and scripts from sub pages into the layout
